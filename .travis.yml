@@ -8,6 +8,7 @@ arch:
   - arm64
 before_install:
   - sudo apt-get -y install openjdk-8-jdk
+  - - sudo apt-get -y install maven
   - export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-arm64/
 install: true
 script:
