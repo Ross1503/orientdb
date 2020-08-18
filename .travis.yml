@@ -3,6 +3,9 @@ language: java
 cache:
   directories:
   - $HOME/.m2
+arch:
+  - amd64
+  - arm64
 install: true
 script:
   - mvn clean test -Dmaven.test.redirectTestOutputToFile=true -P travis
