@@ -7,9 +7,12 @@ arch:
   - amd64
   - arm64
 before_install:
-  - sudo apt-get -y install openjdk-8-jdk
-  - - sudo apt-get -y install maven
-  - export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-arm64/
+  - if [[ "${TRAVIS_CPU_ARCH}" == "arm64" ]]; then
+       sudo apt-get -y install default-jdk;
+       sudo apt-get -y install maven;
+       ls /usr/lib/jvm/;
+       export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-arm64/;
+    fi
 install: true
 script:
   - mvn clean test -Dmaven.test.redirectTestOutputToFile=true -P travis
